@@ -81,4 +81,19 @@ public class Billiards extends JFrame {
 	public static void main(String[] args) {
 		new Billiards();
 	}
+	
+	public class hiloMovedor extends Thread{
+		
+		private Ball bola;
+		
+		public hiloMovedor(Ball bola){
+			this.bola = bola;
+		}
+		
+		@Override
+		public void run(){
+			bola.move();
+		}
+		
+	}
 }
