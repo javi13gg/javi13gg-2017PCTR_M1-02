@@ -31,6 +31,7 @@ public class Ball {
 		x += dx;   
 		y += dy;
 		//TODO Check postcondition
+		assert checkPostconditions(x,y): "Fuera de los limites";
 	}
 
 	public void reflect() {
@@ -46,7 +47,28 @@ public class Ball {
 		if (Math.abs(y - Board.TOPBOARD) <  Math.abs(dy)) {
 			fi = - fi;
 		}
-		//TODO Check postcondition	
+		//TODO Check postcondition
+		assert checkPostconditions(x,y): "Fuera de los limites";
+	}
+	
+	public boolean checkPostconditions(double x, double y){
+		
+		boolean mx = false;
+		boolean my = false;
+		boolean retorno = false;
+		
+		if (x < Board.RIGHTBOARD && x >Board.LEFTBOARD ){
+			mx = true;
+		}
+		if (y > Board.BOTTOMBOARD && y < Board.TOPBOARD){
+			my = true;
+		}
+		
+		
+		if(mx == true && my == true){
+			retorno = true;
+		}
+		return retorno;
 	}
 
 	public int getX() {
