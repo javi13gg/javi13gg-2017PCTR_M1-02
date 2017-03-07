@@ -114,6 +114,11 @@ public class Billiards extends JFrame {
 
 	public static void main(String[] args) {
 		new Billiards();
+		
+		while(true) {
+			board.repaint();
+	}
+
 	}
 	
 	public class hiloMovedor extends Thread{
