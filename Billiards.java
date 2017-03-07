@@ -73,6 +73,8 @@ public class Billiards extends JFrame {
 			balls[i] = new Ball();
 		}
 		
+		board.setBalls(balls);
+		
 	}
 
 	private class StartListener implements ActionListener {
@@ -124,8 +126,15 @@ public class Billiards extends JFrame {
 		
 		@Override
 		public void run(){
-			bola.move();
-			bola.reflect();
+			try{
+				while(true){
+					bola.move();
+					bola.reflect();
+					Thread.speep(20);
+				}
+			}catch(InterruptedException e){
+				return;
+			}
 		}
 		
 	}
